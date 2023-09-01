@@ -14,9 +14,9 @@ A continuación, se enumeran las instrucciones necesarias para habilitar el API 
 
 Para realizar la instalación, ejecute los siguientes comandos:
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ## Ejecución de Pruebas :white_check_mark:
 
