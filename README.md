@@ -1,41 +1,43 @@
-# Recursos para Obtener Datos de SWAPI e Ingresar Datos
+# originacion-salud-individual-api-impl-v1 :hospital:
 
-Este proyecto te permite obtener datos de SWAPI (Star Wars API) y realizar operaciones de inserción de datos.
+Implementación de API negocio para productos Salud - AMI
 
-## Configuración Inicial
+## Inicio Rápido :rocket:
 
-Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local.
+A continuación, se enumeran las instrucciones necesarias para habilitar el API desde una máquina local.
 
-### Paso 1: Instalación
+### Prerrequisitos :computer:
+
+- Node.js v14 (o superior) :arrow_right:
+
+### Instalación :inbox_tray:
+
+Para realizar la instalación, ejecute los siguientes comandos:
 
 \`\`\`bash
 npm install
 \`\`\`
 
-### Paso 2: Ejecución de Pruebas
+## Ejecución de Pruebas :white_check_mark:
+
+Para ejecutar las pruebas unitarias del proyecto y obtener el porcentaje de cobertura alcanzado, ejecute el siguiente comando:
 
 \`\`\`bash
 npm test
 \`\`\`
 
-### Paso 3: Ejecución en Local
+o
 
 \`\`\`bash
-npm start
+npm test-coverage
 \`\`\`
 
-### Paso 4: Despliegue
+### Pruebas de Estilo de Código :mag:
+
+Estas pruebas se realizan para revisar el código escrito y señalar errores y posibles bugs que podemos corregir para mejorar nuestros programas. Para ejecutar esta prueba, use el siguiente comando:
 
 \`\`\`bash
-sls deploy
+npm run lint
 \`\`\`
 
-Asegúrate de configurar adecuadamente las variables de entorno y los archivos de configuración antes de realizar el despliegue.
-
-## Contribuciones
-
-Si deseas contribuir a este proyecto, ¡te damos la bienvenida! Abre un 'issue' para discutir tus ideas o envía una solicitud de extracción con tus mejoras.
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.`
+¡Listo! Ahora puedes copiar y pegar este contenido directamente en tu archivo README.md en GitHub. ¡Espero que te guste! :smiley:
