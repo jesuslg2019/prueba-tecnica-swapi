@@ -1,0 +1,16 @@
+{
+    "error": [
+        {
+            "message": "\"nombre\" is required",
+            "path": [
+                "nombre"
+            ],
+            "type": "string.empty",
+            "context": {
+                "label": "nombre",
+                "value": "",
+                "key": "nombre"
+            }
+        }
+    ]
+}

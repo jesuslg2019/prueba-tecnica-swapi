@@ -1,0 +1,11 @@
+ingresar:
+  handler: src/ingresar/App.handler
+  description: Lambda para ingresar datos a la bd
+  tags:
+    NAME: ${opt:stage}INSERTARDATOSSWAPI
+
+obtner:
+  handler: src/obtner/App.handler
+  description: Lambda para ingresar datos a la bd
+  tags:
+    NAME: ${opt:stage}OBTENERDATOSSWAPI

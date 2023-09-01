@@ -1,0 +1,67 @@
+service: ${self:custom.serviceName}
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage,'DESA'}
+  timeout: 300
+  memorySize: 2048
+  versionFunctions: false
+  logRetentionInDays: 30
+  # role: ${self:custom.role.${opt:stage}}
+  tracing:
+    lambda: true
+  # deploymentBucket:
+  #   name: ${self:custom.deploymentBucket.${opt:stage}}
+  #   serverSideEncryption: AES256
+  tags: # Tags para  los lambdas
+    NAME:  ${opt:stage}INTEGRACIONSWAPI
+    ENTORNO: PROD
+    AMBIENTE: ${self:provider.stage}
+    PROYECTO: PRUEBA-RIMAC
+    RESPONSABLE: JESUS LAZO
+    CMDB: SI
+
+  stackTags: # tags para CloudFormation
+    NAME:  ${opt:stage}INTEGRACIONSWAPI
+    ENTORNO: PROD
+    AMBIENTE: ${self:provider.stage}
+    PROYECTO: PRUEBA-RIMAC
+    RESPONSABLE: JESUS LAZO
+    CMDB: SI
+
+  # vpc: ${self:custom.vpc.${opt:stage}}
+  architecture: arm64
+
+  environment:
+    STAGE: ${self:provider.stage}
+    #DYNAMODB
+    TABLA_DATOSSWAPI: UE2COM${opt:stage}TESTPLANETASSWAPI
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+  splitStacks:
+    perFunction: false
+    perType: true
+    perGroupFunction: false
+
+  name: reto-tecnico-swapi
+  serviceName: ${self:custom.name}-ACF-01
+  functionsFile: ${opt:functionsFile, 'cloud'}
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+package:
+  individually: true
+  exclude:
+    - node_modules/aws-sdk/**
+  include:
+    - node_modules/object-mapper
+    - node_modules/@hapi/joi-date
+    - node_modules/moment
+    - node_modules/moment-timezone
+    - node_modules/lodash
+
+functions: ${file(config/serverless/functions.${self:custom.functionsFile}.yaml)}

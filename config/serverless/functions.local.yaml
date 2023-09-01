@@ -1,0 +1,31 @@
+isercion:
+  handler: src/ingresar/App.handler
+  description: Lambda para insertar datos swapi.
+  events:
+    - http:
+        path: /insertar-datos
+        method: post
+        integration: lambda
+        cors:
+          ${file(config/serverless/http-cors.yaml)}
+        request:
+          template:
+            application/json: ${file(config/serverless/request/insercion.vm)}
+        response:
+          ${file(config/serverless/http-response.yaml)}
+
+consulta:
+  handler: src/obtener/App.handler
+  description: Lambda para obtener datos swapi.
+  events:
+    - http:
+        path: /consultar-datos
+        method: get
+        integration: lambda
+        cors:
+          ${file(config/serverless/http-cors.yaml)}
+        request:
+          template:
+            application/json: ${file(config/serverless/request/consulta.vm)}
+        response:
+          ${file(config/serverless/http-response.yaml)}
